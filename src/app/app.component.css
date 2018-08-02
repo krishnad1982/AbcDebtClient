@@ -1,0 +1,12 @@
+.container{
+   margin-top: 10px;
+}
+.debt-background{
+    background-color:khaki;
+}
+.payment-background{
+    background-color: yellowgreen;
+}
+.custom {
+    width: 138px !important;
+}

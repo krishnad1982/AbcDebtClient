@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="onSubmit(frm)" #frm="ngForm">
+      <div class="col-sm-5 debt-background">
+        <h1>Sales Details</h1>
+        <div class="form-group">
+          <label for="customer">Customer Id</label>
+          <input type="text" class="form-control" id="email" placeholder="Enter cutomer id" name="customerid" [(ngModel)]=customerId
+            disabled=true>
+        </div>
+        <div class="form-group">
+          <label for="location">Location Name:</label>
+          <input type="text" required class="form-control" id="location" placeholder="Enter location name" name="location" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="operator">Operator Name:</label>
+          <input type="text" required class="form-control" id="operator" placeholder="Enter operator name" name="operator" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="debt">Opening Debt:</label>
+          <input type="text" required pattern="^[1-9]+[0-9]*$" class="form-control" id="debt" placeholder="Enter opening debt" name="debt"
+            ngModel>
+        </div>
+        <div class="form-group">
+          <label for="currency">Enter Currency:</label>
+          <select class="form-control" required name="currency" ngModel>
+            <option *ngFor="let currency of currencyList">
+              {{currency}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="invoice">Sale Invoice Number:</label>
+          <input type="text" class="form-control" id="invoice" name="invoice" disabled=true [(ngModel)]=invoiceNumber>
+        </div>
+        <hr>
+      </div>
+      <div class="col-sm-5 col-sm-offset-1 payment-background">
+        <h1>Payment Details</h1>
+        <div class="form-group">
+          <label for="description">Enter Payment Description:</label>
+          <input type="text" class="form-control" id="description" placeholder="Enter payment description" name="description" ngModel>
+        </div>
+        <div class="form-group">
+          <label for="amount">Enter Payment Amount:</label>
+          <input type="text" required pattern="^[1-9]+[0-9]*$" class="form-control" id="amount" placeholder="Enter payment amount"
+            name="amount" ngModel>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-4">
+            <button type="submit" class="btn btn-primary custom" [disabled]="!frm.valid">Submit</button>
+          </div>
+          <div class="col-sm-4">
+            <button type="button" class="btn btn-danger custom" (click)="onClear()">Cancel</button>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </form>
+  </div>
+
+</div>
